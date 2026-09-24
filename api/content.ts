@@ -1,7 +1,7 @@
 export type Actor = { id:string; name:string; role:string; precision:number; acting:number; improvisation:number; stamina:number; trait:string; bio:string };
 export type Town = { id:string; name:string; region:string; legend:string; mood:string; audience:string; capacity:number; ticket:number; clues:string[] };
 export type Play = { id:string; name:string; blurb:string; tags:string[]; acts:string[]; endings:string[] };
-export type Action = { id:string; name:string; category:string; duration:number; stamina:number; tags:string[]; description:string };
+export type Action = { id:string; name:string; category:string; duration:number; stamina:number; minActors?:number; tags:string[]; description:string };
 export const actors:Actor[] = [
  {id:'mei',name:'梅枝',role:'牵线师',precision:8,acting:6,improvisation:5,stamina:78,trait:'耐力好',bio:'能把最细小的情绪传给最后一排。'},
  {id:'luo',name:'罗盘',role:'即兴演员',precision:5,acting:7,improvisation:9,stamina:72,trait:'现 场救场',bio:'总能在木偶摔倒时把它变成剧情。'},
@@ -36,7 +36,7 @@ export const actions:Action[] = [
  {id:'dance',name:'庆舞',category:'表演',duration:2,stamina:7,tags:['庆典'],description:'让整个舞台一起旋转。'},
  {id:'leap',name:'跃台',category:'技巧',duration:1,stamina:8,tags:['英雄'],description:'高风险的腾跃，需要精准。'},
  {id:'mask',name:'变脸',category:'技巧',duration:1,stamina:6,tags:['神秘'],description:'一张脸藏住另一张脸。'},
- {id:'lift',name:'联合托举',category:'技巧',duration:2,stamina:6,tags:['温情'],description:'至少两名演员共同完成。'},
+ {id:'lift',name:'联合托举',category:'技巧',duration:2,stamina:6,minActors:2,tags:['温情'],description:'至少两名演员共同完成。'},
  {id:'exit',name:'退场',category:'位移',duration:1,stamina:2,tags:['收束'],description:'把故事交还给帷幕。'},
  {id:'chase',name:'追逐',category:'位移',duration:2,stamina:8,tags:['滑稽'],description:'节奏明快的舞台追逐。'},
  {id:'listen',name:'侧耳倾听',category:'表演',duration:1,stamina:2,tags:['神秘','哀思'],description:'让木偶听见传说的回声。'}
